@@ -17,3 +17,15 @@ function fibonacci_opt (n) {
   return array[n]
 }
 
+// 记录计算值减少内存消耗
+memorize = fn => {
+  let cache = {}
+  return (first, ...args) => {
+    if(!(first in cache)){
+      cache[first] = fn(first, ...args) }
+    return cache[first]
+  }
+}
+f = memorize( n =>
+    n === 0 ? 0 : n === 1 ? 1 : f(n-1) + f(n-2)
+)
