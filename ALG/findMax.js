@@ -23,8 +23,8 @@ function max_s2 (arr) {
 }
 
 // 优化max_s2 递归算法
-  const maxOfTwo = (a, b) => a > b ? a : b
-  const max_s2_opt = ([first, ...others]) => others.length < 1 ? first : maxOfTwo(first, max_s2_opt(others))
+const maxOfTwo = (a, b) => a > b ? a : b
+const max_s2_opt = ([first, ...others]) => others.length < 1 ? first : maxOfTwo(first, max_s2_opt(others))
 
 max_s2(array) // 99
 
