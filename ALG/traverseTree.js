@@ -28,3 +28,31 @@
   })
   console.log(result)
 }
+
+const traverse = (tree, fn) => {
+  const t = (tree, i, fn) => {
+	if (tree[i] === undefined) return
+	t(tree, 2 * i + 1, fn)
+	t(tree[i])
+	t(tree, 2 * i + 2, fn)
+  }
+  t(tree, 0, fn)
+}
+const result = []
+const arr = [1, null, 2, 3]
+traverse(arr, () => {
+  result.push(arr)
+})
+console.log(result)
+
+function TreeNode(val) {
+  this.val = val
+  this.left = this.right = null
+}
+
+function flatten(arr, result = []) {
+  for (let value of arr) {
+	Array.isArray(value) ? flatten(value, result) : result.push(value)
+  }
+  return result
+}
